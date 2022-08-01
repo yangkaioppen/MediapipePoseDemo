@@ -4,7 +4,7 @@ Demo for Mediapipe Pose
 See [the official page of Mediapipe Pose](https://google.github.io/mediapipe/solutions/pose.html) for the details of APIs and outputs.
 
 ## Usage
-Install `Node.js` and then install `yarn` and `gulp` globally by `npm`.
+Install `Node.js` and then install `yarn` and `gulp-cli` globally by `npm`.
 Clone this repository  and run:
 ```bash
 $  yarn install
