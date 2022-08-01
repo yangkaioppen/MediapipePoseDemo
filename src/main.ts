@@ -12,11 +12,17 @@ const crop_canvas_element = document.getElementsByClassName('crop_canvas')[0] as
 const crop_canvas_ctx = crop_canvas_element.getContext('2d');
 // btn for toggling font/back cameras
 const toggle_btn = document.getElementById("toggle-camera-btn");
+const fps_label = document.getElementById("fps");
 
 canvas_element.width = window.innerWidth;
 canvas_element.height = window.innerHeight;
 crop_canvas_element.width = 320;
 crop_canvas_element.height = 320 / window.innerWidth * window.innerHeight;
+
+
+var frame_count = 0;
+var time_total = 0.0;
+var last_time = (new Date()).getTime();
 
 // callback function called when pose results returned
 function onResults(results) {
@@ -31,6 +37,18 @@ function onResults(results) {
     DrawingUtils.drawLandmarks(canvas_ctx, results.poseLandmarks, {color: '#FF0000', lineWidth: 2});
   }
   canvas_ctx.restore();
+
+  // show fps
+  const curr_time = (new Date()).getTime();
+  time_total += curr_time - last_time;
+  ++frame_count;
+  last_time = curr_time;
+  if (frame_count % 30 == 0) {
+    const fps: number = frame_count / (time_total / 1000);
+    time_total = 0.0;
+    frame_count = 0;
+    fps_label.innerHTML = fps.toFixed(2) + " fps";
+  }
 }
 
 // crop the middle part of the video image according to aspect ratio
