@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+    body {
+      margin: 0px;
+      border: 0px;
+    }
+    .output_canvas {
+      position: absolute;
+      display: block;
+      margin: 0px;
+      border: 0px;
+    }
+    .toggle-btn {
+      position:  absolute;
+      display:  block;
+      z-index: 999;
+      width: 100%;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <video class="input_video" playsinline hidden></video>
+    <canvas class="crop_canvas" hidden></canvas>
+    <canvas class="output_canvas"></canvas>
+
+    <button class="toggle-btn" id="toggle-camera-btn">Toggle Camera</button>
+  </div>
+
+  <script src="main.js?v=3"></script>
+</body>
+</html>

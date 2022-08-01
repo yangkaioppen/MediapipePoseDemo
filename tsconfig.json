@@ -1,0 +1,7 @@
+{
+  "files": ["src/main.ts"],
+  "compilerOptions": {
+    "target": "es2017",
+    "esModuleInterop": true
+  }
+}
